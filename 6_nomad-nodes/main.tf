@@ -303,3 +303,16 @@ resource "aws_autoscaling_group" "nomad_client_arm_asg" {
     create_before_destroy = true
   }
 }
+
+module "managed-ad" {
+  source  = "aws-samples/windows-workloads-on-aws/aws//modules/managed-ad"
+  version = "1.2.2"
+  ds_managed_ad_directory_name = "corp.local"
+  ds_managed_ad_short_name = "corp"
+  ds_managed_ad_edition = "Standard"
+  ds_managed_ad_secret_key = "arn:aws:kms:us-east-2:730335185301:key/d198699d-27ed-4cae-93a0-05fa64652c27"
+  aws_region = "us-east-2"
+  vpc_id = "vpc-0434c5ea7af5ee740"
+  private_subnet_id_1 = "subnet-0d5ee1cd793997280"
+  private_subnet_id_2 = "subnet-0ecec811f55456755"
+}
