@@ -50,6 +50,7 @@ module "vpc" {
   name                 = "${var.stack_id}-vpc"
   private_subnets      = var.vpc_private_subnets
   public_subnets       = var.vpc_public_subnets
+  enable_nat_gateway   = true
 }
 
 resource "hcp_hvn" "main" {
