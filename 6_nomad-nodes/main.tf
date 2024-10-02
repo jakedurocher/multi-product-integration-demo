@@ -305,8 +305,8 @@ resource "aws_autoscaling_group" "nomad_client_arm_asg" {
 }
 
 module "managed-ad" {
-  source  = "aws-samples/windows-workloads-on-aws/aws//modules/managed-ad"
-  version = "1.2.2"
+  source  = "/managed-ad"
+  
   ds_managed_ad_directory_name = "corp.local"
   ds_managed_ad_short_name = "corp"
   ds_managed_ad_edition = "Standard"
