@@ -305,8 +305,8 @@ resource "aws_autoscaling_group" "nomad_client_arm_asg" {
 }
 
 module "managed-ad" {
-  source  = "/managed-ad"
-  
+  source  = "./managed-ad"
+
   ds_managed_ad_directory_name = "corp.local"
   ds_managed_ad_short_name = "corp"
   ds_managed_ad_edition = "Standard"
