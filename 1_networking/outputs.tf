@@ -22,5 +22,5 @@ output "private_subnet_cidrs" {
   value = module.vpc.private_subnets_cidr_blocks
 }
 output "hvn_sg_id" {
-  value = module.aws_hcp_network_config.security_group_id
+  value = module.aws_merged_hcp_network_config.security_group_id
 }
