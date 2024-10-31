@@ -59,22 +59,18 @@ resource "hcp_hvn" "main" {
   cidr_block     = var.hvn_cidr_block
 }
 
-module "aws_hcp_network_config" {
+module "aws_merged_hcp_network_config" {
   source  = "hashicorp/hcp-consul/aws"
   version = "~> 0.12.1"
 
   hvn             = hcp_hvn.main
   vpc_id          = module.vpc.vpc_id
-  subnet_ids      = module.vpc.public_subnets
-  route_table_ids = module.vpc.public_route_table_ids
-}
-
-module "aws_private_hcp_network_config" {
-  source  = "hashicorp/hcp-consul/aws"
-  version = "~> 0.12.1"
-
-  hvn             = hcp_hvn.main
-  vpc_id          = module.vpc.vpc_id
-  subnet_ids      = module.vpc.private_subnets
-  route_table_ids = module.vpc.private_route_table_ids
+  subnet_ids      = concat(
+    sort(module.vpc.public_subnets),
+    sort(module.vpc.private_subnets),
+  )
+  route_table_ids = concat(
+    sort(module.vpc.public_route_table_ids),
+    sort(module.vpc.private_route_table_ids),
+  )
 }
