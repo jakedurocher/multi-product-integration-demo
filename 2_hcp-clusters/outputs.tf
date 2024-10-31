@@ -40,11 +40,11 @@ output "vpc_id" {
 }
 
 output "subnet_ids" {
-  value = data.terraform_remote_state.networking.outputs.subnet_ids
+  value = data.terraform_remote_state.networking.outputs.public_subnet_ids
 }
 
 output "subnet_cidrs" {
-  value = data.terraform_remote_state.networking.outputs.subnet_cidrs
+  value = data.terraform_remote_state.networking.outputs.public_subnet_cidrs
 }
 
 output "hvn_sg_id" {
