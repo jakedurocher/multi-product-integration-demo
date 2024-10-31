@@ -287,7 +287,7 @@ resource "aws_autoscaling_group" "nomad_server_asg" {
     version = aws_launch_template.nomad_server_launch_template.latest_version
   }
 
-  vpc_zone_identifier = data.terraform_remote_state.networking.outputs.subnet_ids
+  vpc_zone_identifier = data.terraform_remote_state.networking.outputs.public_subnet_ids
 
   instance_refresh {
     strategy = "Rolling"
