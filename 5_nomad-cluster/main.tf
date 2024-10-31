@@ -189,7 +189,7 @@ resource "aws_security_group" "nomad_lb" {
     from_port   = 4646
     to_port     = 4646
     protocol    = "tcp"
-    cidr_blocks = data.terraform_remote_state.networking.outputs.ublic_subnet_cidrs
+    cidr_blocks = data.terraform_remote_state.networking.outputs.public_subnet_cidrs
   }
 }
 
