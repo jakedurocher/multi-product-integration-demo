@@ -31,7 +31,7 @@ variable "vpc_public_subnets" {
 variable "vpc_private_subnets" {
   type        = list(string)
   description = "A list of private subnet CIDR ranges to create"
-  default     = []
+  default     = ["10.0.10.0/24", "10.0.20.0/24", "10.0.30.0/24"]
 }
 
 variable "hvn_cidr_block" {
