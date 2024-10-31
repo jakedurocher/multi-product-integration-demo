@@ -240,7 +240,7 @@ data "hcp_packer_image" "ubuntu_nobel_hashi_arm" {
 
 resource "aws_launch_template" "nomad_server_launch_template" {
   name_prefix   = "lt-"
-  image_id      = data.hcp_packer_image.ubuntu_lunar_hashi_amd.cloud_image_id
+  image_id      = data.hcp_packer_image.ubuntu_nobel_hashi_amd.cloud_image_id
   instance_type = "t3a.micro"
 
   network_interfaces {
